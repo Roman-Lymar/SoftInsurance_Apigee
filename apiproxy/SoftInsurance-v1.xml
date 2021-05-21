@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="SoftInsurance-v1">
+    <Basepaths>/softinsurance/v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1621274961695</CreatedAt>
+    <CreatedBy>r.v.lymar@gmail.com</CreatedBy>
+    <Description>This is a sample Softinsurance server provided by ITA KH-048 Java Apigee team (@since 01.03.2021)</Description>
+    <DisplayName>SoftInsurance</DisplayName>
+    <LastModifiedAt>1621592951444</LastModifiedAt>
+    <LastModifiedBy>r.v.lymar@gmail.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:39efa00a341122d0c034623f040a25e3e684d7e0ffa1fc3d976d8fd3c188187bc4034ec66b46ef242de8ed809bda4f3d22d4c7938a90ee529e9d18591177b942:eu-west-1</ManifestVersion>
+    <Policies>
+        <Policy>FC-JWTGeneration</Policy>
+        <Policy>OA-OAuth-v20-1</Policy>
+        <Policy>Q-Quota</Policy>
+        <Policy>SA-Spike-Arrest</Policy>
+        <Policy>VAK-VerifyAPIKey</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+    </Resources>
+    <Spec/>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>auth</TargetEndpoint>
+        <TargetEndpoint>client</TargetEndpoint>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

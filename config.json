@@ -1,0 +1,91 @@
+{
+    "configurations": [
+        {
+            "name": "test",
+            "proxies": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
+                            "value": "/softinsurance/v1"
+                        }
+                    ]
+                }
+            ],
+            "targets": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://softinsurance.herokuapp.com/api/v1"
+                        }
+                    ]
+                },
+                {
+                    "name": "auth.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://softinsurance-auth-api.herokuapp.com/api/v1"
+                        }
+                    ]
+                },
+                {
+                    "name": "client.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://insurance-client-api.herokuapp.com/api/v2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "prod",
+            "proxies": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/ProxyEndpoint/HTTPProxyConnection/BasePath",
+                            "value": "/softinsurance/v1"
+                        }
+                    ]
+                }
+            ],
+            "targets": [
+                {
+                    "name": "default.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://softinsurance.herokuapp.com/api/v1"
+                        }
+                    ]
+                },
+                {
+                    "name": "auth.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://softinsurance-auth-api.herokuapp.com/api/v1"
+                        }
+                    ]
+                },
+                {
+                    "name": "client.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/URL",
+                            "value": "https://insurance-client-api.herokuapp.com/api/v2"
+                        }
+                    ]
+                }
+            ]
+        }
+
+    ]
+}

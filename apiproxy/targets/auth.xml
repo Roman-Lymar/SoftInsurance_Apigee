@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><TargetEndpoint name="auth">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="signUp">
+            <Description>Create new user with credentials and return a token</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/signup") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="signIn">
+            <Description>Authenticate user credentials and return a token</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/signin") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="changeRole">
+            <Description>Changes user role, only for admin</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*/change-role") and (request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="changePwd">
+            <Description>Changes user password</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*/change-password") and (request.verb = "PATCH")</Condition>
+        </Flow>
+        <Flow name="changeLogin">
+            <Description>Changes user login</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/users/*/change-login") and (request.verb = "PATCH")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://softinsurance-auth-api.herokuapp.com/api/v1</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>
