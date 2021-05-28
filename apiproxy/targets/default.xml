@@ -7,8 +7,7 @@
     <Flows>
         <Flow name="getAllProducts">
             <Description>Gets all the products.</Description>
-            <Request>
-            </Request>
+            <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/products") and (request.verb = "GET")</Condition>
         </Flow>
@@ -37,6 +36,9 @@
         <Flow name="replaceProduct">
             <Description>Updates a product.</Description>
             <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
             </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/products/*") and (request.verb = "PUT")</Condition>
@@ -44,6 +46,9 @@
         <Flow name="partialUpdateProduct">
             <Description>Updates a product.</Description>
             <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
             </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/products/*") and (request.verb = "PATCH")</Condition>
@@ -51,6 +56,9 @@
         <Flow name="deleteProductById">
             <Description>Deletes a product.</Description>
             <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
             </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/products/*") and (request.verb = "DELETE")</Condition>
@@ -73,7 +81,11 @@
         </Flow>
         <Flow name="findCustomPackageById">
             <Description>Gets a custom package by id.</Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
+            </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/packages/*") and (request.verb = "GET")</Condition>
         </Flow>
@@ -85,7 +97,11 @@
         </Flow>
         <Flow name="getInfoPackageById">
             <Description>Gets a full custom package info with products.</Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
+            </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/packages/*/info") and (request.verb = "GET")</Condition>
         </Flow>
@@ -97,19 +113,31 @@
         </Flow>
         <Flow name="createNewPackageCustom">
             <Description>Creates a new custom package.</Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
+            </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/packages") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="createNewPackageBase">
             <Description>Creates a new base package.</Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
+            </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/packages/base") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="deletePackageById">
             <Description>Deletes a package.</Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>FC-JWTGeneration</Name>
+                </Step>
+            </Request>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/catalog/packages/*") and (request.verb = "DELETE")</Condition>
         </Flow>

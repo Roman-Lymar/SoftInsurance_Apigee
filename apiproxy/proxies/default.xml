@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
+    <FaultRules>
+        <FaultRule name="InvalidApiKey">
+            <Step>
+                <Name>RF-401InvalidApiKey</Name>
+            </Step>
+            <Condition>(fault.name Matches "InvalidApiKey")</Condition>
+        </FaultRule>
+        <FaultRule name="FailedToResolveApiKey">
+            <Step>
+                <Name>RF-401FailedToResolveApiKey</Name>
+            </Step>
+            <Condition>(fault.name Matches "FailedToResolveAPIKey")</Condition>
+        </FaultRule>
+        <FaultRule name="ResourseNotFound">
+            <Step>
+                <Name>RF-404NotFound</Name>
+            </Step>
+            <Condition>(fault.name Matches "Not Found")</Condition>
+        </FaultRule>
+    </FaultRules>
     <PreFlow name="PreFlow">
         <Request>
             <Step>

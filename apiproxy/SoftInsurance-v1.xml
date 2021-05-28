@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="7" name="SoftInsurance-v1">
+<APIProxy revision="14" name="SoftInsurance-v1">
     <Basepaths>/softinsurance/v1</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1621274961695</CreatedAt>
     <CreatedBy>r.v.lymar@gmail.com</CreatedBy>
     <Description>This is a sample Softinsurance server provided by ITA KH-048 Java Apigee team (@since 01.03.2021)</Description>
     <DisplayName>SoftInsurance</DisplayName>
-    <LastModifiedAt>1621592951444</LastModifiedAt>
+    <LastModifiedAt>1622188957210</LastModifiedAt>
     <LastModifiedBy>r.v.lymar@gmail.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:39efa00a341122d0c034623f040a25e3e684d7e0ffa1fc3d976d8fd3c188187bc4034ec66b46ef242de8ed809bda4f3d22d4c7938a90ee529e9d18591177b942:eu-west-1</ManifestVersion>
+    <ManifestVersion>SHA-512:e332ca46a7f48ecb75827ab7cf691959f7e21aab5120abd1961ca676b42b7433e865acfefc8d34290fd5e322d52768a9a3e81c2c66211cb30b66e2962b6532d5:eu-west-1</ManifestVersion>
     <Policies>
+        <Policy>AM-401ApiKey</Policy>
         <Policy>FC-JWTGeneration</Policy>
+        <Policy>JS-format</Policy>
         <Policy>OA-OAuth-v20-1</Policy>
         <Policy>Q-Quota</Policy>
+        <Policy>RF-401FailedToResolveApiKey</Policy>
+        <Policy>RF-401InvalidApiKey</Policy>
+        <Policy>RF-404NotFound</Policy>
         <Policy>SA-Spike-Arrest</Policy>
         <Policy>VAK-VerifyAPIKey</Policy>
     </Policies>
@@ -21,8 +26,9 @@
     </ProxyEndpoints>
     <Resources>
         <Resource>openapi://association.json</Resource>
+        <Resource>jsc://format.js</Resource>
+        <Resource>jsc://utils.js</Resource>
     </Resources>
-    <Spec/>
     <TargetServers/>
     <TargetEndpoints>
         <TargetEndpoint>auth</TargetEndpoint>
