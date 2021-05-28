@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-401ApiKey">
+    <DisplayName>Invalid key message</DisplayName>
+    <Set>
+        <Payload contentType="application/json">{"Citizen":"Where's your API key? 
+        I don't see it as a query parameter"}</Payload>
+        <StatusCode>911</StatusCode>
+        <ReasonPhrase>Rejected by API Key Emergency Services</ReasonPhrase>
+    </Set>
+    <Add>
+        <Headers>
+            <Header name="invalidKey">Invalid API key! Call the cops!</Header>
+        </Headers>
+    </Add>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

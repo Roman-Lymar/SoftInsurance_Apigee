@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-401FailedToResolveApiKey">
+    <DisplayName>RF-401FailedToResolveApiKey</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+                {"error":"Failed to resolve Api key"}
+            </Payload>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unathorized</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
