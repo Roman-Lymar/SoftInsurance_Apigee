@@ -13,11 +13,29 @@
             </Step>
             <Condition>(fault.name Matches "FailedToResolveAPIKey")</Condition>
         </FaultRule>
-        <FaultRule name="ResourseNotFound">
+        <FaultRule name="InvalidAccessToken">
+            <Condition>(fault.name = "invalid_access_token")</Condition>
+            <Step>
+                <Name>RF-401InvalidAccessToken</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="ExpiredAccessToken">
+            <Condition>(fault.name = "access_token_expired")</Condition>
+            <Step>
+                <Name>RF-401ExpiredAccessToken</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="SpikeArrestViolation">
+            <Condition>(fault.name = "SpikeArrestViolation")</Condition>
+            <Step>
+                <Name>RF-429SpikeArrestViolation</Name>
+            </Step>
+        </FaultRule>
+        <FaultRule name="ResourсeNotFound">
             <Step>
                 <Name>RF-404NotFound</Name>
             </Step>
-            <Condition>(fault.name Matches "Not Found")</Condition>
+            <Condition>(response.status.code == 404)</Condition>
         </FaultRule>
     </FaultRules>
     <PreFlow name="PreFlow">
@@ -27,6 +45,7 @@
             </Step>
             <Step>
                 <Name>VAK-VerifyAPIKey</Name>
+                <Condition>request.verb != "OPTIONS"</Condition>
             </Step>
             <Step>
                 <Name>OA-OAuth-v20-1</Name>
@@ -34,13 +53,36 @@
             <Step>
                 <Name>Q-Quota</Name>
             </Step>
+            <Step>
+                <Name>RP-RegexProtection</Name>
+            </Step>
+            <Step>
+                <Name>JTP-JSONThreatProtection</Name>
+            </Step>
+            <Step>
+                <Name>JS-variables</Name>
+            </Step>
         </Request>
         <Response/>
     </PreFlow>
-    <Flows/>
+    <Flows>
+        <Flow name="OptionsPreFlight">
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-AddCORS</Name>
+                </Step>
+            </Response>
+            <Condition>request.verb == "OPTIONS" AND request.header.origin != null AND request.header.Access-Control-Request-Method != null</Condition>
+        </Flow>
+    </Flows>
     <PostFlow name="PostFlow">
         <Request/>
-        <Response/>
+        <Response>
+            <Step>
+                <Name>JS-format</Name>
+            </Step>
+        </Response>
     </PostFlow>
     <HTTPProxyConnection>
         <BasePath>/softinsurance/v1</BasePath>

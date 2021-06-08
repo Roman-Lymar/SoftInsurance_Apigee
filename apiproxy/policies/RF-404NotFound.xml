@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault name="RF-404NotFound">
+<RaiseFault name="RF-404NotFound" enabled="true" async="false" continueOnError="false">
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <FaultResponse>
         <Set>
+            <Payload contentType="application/json">
+                {"error": "Page Not Found"}
+            </Payload>
             <StatusCode>404</StatusCode>
             <ReasonPhrase>Not Found</ReasonPhrase>
         </Set>

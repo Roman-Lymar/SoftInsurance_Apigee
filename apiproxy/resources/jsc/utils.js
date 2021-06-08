@@ -2,11 +2,11 @@ function transform(parsedResponse, environmentContext){
     
     var proxyResponse = {};
     
-    var link = getLink(environmentContext.reqScheme, environmentContext.proxyHost,
+    var link = getLink(environmentContext.reqScheme, environmentContext.proxyHost, 
                         environmentContext.basepath, environmentContext.pathsuffix,
                         environmentContext.itemId);
                         
-    proxyResponse.links = {collection: { href: link }};
+    proxyResponse.link = link;
 
     
     if(isArray(parsedResponse)){
@@ -43,3 +43,5 @@ function getLink(reqScheme, proxyHost, basepath, pathsuffix, itemId){
     }
     return link;
 }
+
+

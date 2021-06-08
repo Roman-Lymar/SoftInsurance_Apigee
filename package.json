@@ -1,0 +1,19 @@
+{
+  "name": "SoftInsurance-v1",
+  "jest": {
+    "verbose": true,
+    "testMatch": [
+      "**/test/*.js?(x)"
+    ],
+    "testEnvironment": "node"
+  },
+  "version": "1.0.0",
+  "dependencies": {
+    "jest-openapi": "^0.13.0"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "jest": "^26.6.3",
+    "jest-openapi": "^0.13.0"
+  }
+}

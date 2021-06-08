@@ -10,8 +10,8 @@
     
     const environmentContext = {
         reqScheme: context.getVariable("client.scheme"),
-        proxyHost: context.getVariable("request.header.host"),
         basepath: context.getVariable("proxy.basepath"),
+        proxyHost: context.getVariable("request_host"),
         pathsuffix: context.getVariable("proxy.pathsuffix"),
         itemId: context.getVariable("urirequest.id")
     }
@@ -23,3 +23,4 @@
         context.setVariable('response.content', JSON.stringify(response, null, 2));
     }
 })();
+
